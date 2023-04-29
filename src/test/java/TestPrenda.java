@@ -7,9 +7,12 @@ public class TestPrenda {
         @Test
         void testCreacionPrendaFaltante() {
             TipoPrenda tipo = new TipoPrenda("Remera", Categoria.PARTE_SUPERIOR);
-            Material material = new Material("Algodón");
-            Color colorPrimario = new Color(255, 0, 0);
-            Optional<Color> colorSecundario = Optional.empty();
-            assertThrows(NullPointerException.class, () -> new Prenda(null, material, colorPrimario, colorSecundario));
+
+            BorradorPrenda borrador = new BorradorPrenda(tipo);
+            borrador.conColorPrimario(new Color(255, 0, 0));
+            borrador.conColorSecundario(Optional.of(new Color(0, 255, 0)));
+            borrador.conTela(new Tela());
+
+            assertThrows(NullPointerException.class, () -> borrador.crear());
         }
 }
