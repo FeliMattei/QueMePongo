@@ -1,0 +1,6 @@
+> BorradorPrenda
+	- Se encarga de crear la Prenda bajo los atributos correspondientes.
+	- El atributo TipoPrenda se solicita en el constructor dado que es necesario para continuar agregando los restantes.
+
+> Tela
+	- Se abstrae a una clase que contiene el atributo Trama, que es un ENUM.
