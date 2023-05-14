@@ -7,6 +7,7 @@ public class BorradorPrenda {
     Material material;
     Color colorPrimario;
     Optional<Color> colorSecundario;
+    Formalidad formalidad;
 
     public BorradorPrenda(TipoPrenda tipoPrenda) {
         this.tipoPrenda = tipoPrenda;
@@ -28,15 +29,20 @@ public class BorradorPrenda {
         this.colorSecundario = colorSecundario;
     }
 
+    public void conFormalidad(Formalidad formalidad){
+        this.formalidad = formalidad;
+    }
+
     public Prenda crear() {
         this.validarConsistencia();
-        return new Prenda(tipoPrenda, tela, material, colorPrimario, colorSecundario);
+        return new Prenda(tipoPrenda, tela, material, colorPrimario, colorSecundario, formalidad);
     }
 
     public void validarConsistencia() {
         Objects.requireNonNull(this.tipoPrenda, "Tipo de prenda es obligatorio");
-        Objects.requireNonNull(this.tela, "Tela es obligatorio");
+        Objects.requireNonNull(this.tela, "Tela es obligatoria");
         Objects.requireNonNull(this.material, "Material es obligatorio");
         Objects.requireNonNull(this.colorPrimario, "Color primario es obligatorio");
+        Objects.requireNonNull(this.formalidad, "Formalidad es obligatoria");
     }
 }
